@@ -1,0 +1,170 @@
+html, body {
+  margin:0;
+  padding:0;
+  background-color: lightgrey;
+}
+
+
+/*HEADER*/
+
+#header-box {
+  display: grid;
+  grid-template-columns:repeat(1, 100% [nav-col]);
+  grid-template-rows: [name-row] 65px [job-row] 55px;
+  grid-auto-flow: row; 
+  background-color: white;
+  text-transform: uppercase;
+  
+
+  
+  /*border:solid 1px black;*/
+}
+
+#header-name {
+  grid-column-start: 1;
+  grid-column-end: 4;
+
+  justify-self: stretch;
+  text-align: center;
+  text-transform: initial;
+  color: #423e3e;
+  z-index: 1;
+  background-color: white;
+  /*border:solid 3px black;*/
+}
+
+#header-job {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  justify-self: stretch;
+  text-align: center;
+  
+  background-color: #423e3e;
+  color:white;
+  z-index: 1;
+}
+
+.header-nav {
+  justify-self: stretch;
+  text-align: center;
+}
+
+.header-nav{
+   border-width: 0 2px 6px 0;
+   border-color: lightgrey;
+   border-style: solid;
+   color: #635f5f;
+   z-index: 2;
+   background-color: white;
+}
+
+}
+
+.me{ 
+  border-width: 0 0 6px 0;
+   z-index: 2;
+}
+
+/*main*/
+
+main {
+  background-color: lightgrey;
+}
+
+.article-box {
+  background-color: white;
+  margin: 0 14px 4px 14px;
+  border-width: 1px 1px 1px 1px;
+  border-color:#635f5f;
+  border-style: solid;
+  border-radius: 1%;
+  
+ 
+}
+
+.img-box{
+  padding: 20px 55px 20px 55px;
+}
+
+.text-box {
+  
+  display: grid;
+  grid-template-columns:repeat(20, 5% [text-col]);
+}
+
+.app-title, .app-desc, .app-lang {
+  grid-column-start: 4;
+  grid-column-end: 18;
+  margin: 0 0 8px 0;
+}
+
+.app-title, .app-lang {
+    color: #635f5f;
+}
+
+.app-lang {
+  padding-bottom: 8px;
+}
+
+#appendSpace {
+  position: relative;
+  top: -100px;
+}
+
+.article-box {
+  z-index: -2;
+}
+
+/*experiment*/
+
+.fix{
+    position:fixed;
+    background-color: white;
+  
+    left:0;
+    right:0;
+    z-index: 2;
+    
+}
+
+
+.nav-box {
+    display: grid;
+    grid-template-columns:repeat(3, 33.3% [nav-col]);
+    background-color: white;
+}
+
+/*animations*/
+
+.position-change {
+  animation-name:position-change;
+  animation-duration:3s;
+  animation-direction:forwards; 
+  animation-fill-mode: forwards;
+}
+
+.position-change-back {
+  animation-name:position-change-back;
+  animation-duration:.5s;
+  animation-direction:forwards; 
+  animation-fill-mode: forwards;
+}
+
+
+@keyframes position-change {
+    0%   {top:-1000px; opacity: .5; }
+    100% { top:0px; }
+  }
+
+
+@keyframes position-change-back {
+    0%   {top:0px;}
+    100% {top:-1000px; opacity: 0; }
+  }
+
+  
+
+
+
+
+
