@@ -70,6 +70,8 @@ html, body {
 main {
   background-color: lightgrey;
   max-height: 2500px;
+  max-width: 500px;
+  margin:auto;
   /*so  ehow make it -350 px less than total appenddiv*/
 }
 
@@ -123,6 +125,15 @@ main {
 
 .article-box {
   z-index: -2;
+}
+
+.divider {
+  height:2em;
+  background-color: #635f5f;
+  color: white;
+  text-align: center;
+  padding-top: 14px;
+  font-size: 22px;
 }
 
 /*experiment*/
@@ -185,7 +196,7 @@ main {
     100% {top:-3800px;}
   }
 
-  @media screen and (min-width:415px) {
+@media screen and (min-width:415px) {
     #appendSpace  {
       /*width: 415px;*/
       max-width: 500px;
@@ -196,6 +207,83 @@ main {
     margin: auto;
   }
 }
+
+@media screen and (min-width: 750px) {
+    main {
+      max-width: 800px;
+      display: grid;
+      grid-template-columns:repeat(2, 50% [art-col]);
+      grid-template-rows: repeat(44, 50px [row-start]) 5%;
+      grid-auto-flow: row; 
+
+    }   
+
+/*order of articles*/
+
+    .article-box {    
+/*      grid-column-start: 1,2;
+      grid-column-end: 2,3;*/
+      z-index:1;
+      justify-self: stretch;
+    }
+
+    .divider  {
+      display:none;
+    }
+
+    #piano-article {
+      grid-row-start: 1;
+      grid-row-end: 8; 
+    }
+
+    #wiki-article {
+      grid-row-start: 1;
+      grid-row-end: 8;
+    }
+
+    #weather-article {
+      grid-row-start: 8;
+      grid-row-end: 16;
+    }
+    
+    #sentiment-article {
+      grid-row-start: 8;
+      grid-row-end: 18;
+    }
+
+    #maps-article {
+      grid-row-start: 16;
+      grid-row-end: 24;
+    }
+    #calc-article {
+      grid-row-start: 18;
+      grid-row-end: 30;      
+    }
+
+    #crosses-article {
+      grid-row-start: 24;
+      grid-row-end: 36;            
+    }
+
+    #caesar-article {
+      grid-row-start: 30;
+      grid-row-end: 39;        
+    }
+    #samurai-article {
+      grid-row-start: 36;
+      grid-row-end: 46;        
+    }
+    #stock-article {
+      grid-row-start: 39;
+      grid-row-end: 46;     
+    }
+    #about-me-div {
+      display: none;
+    }   
+
+}
+
+
 
   
 
