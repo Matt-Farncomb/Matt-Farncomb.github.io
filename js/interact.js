@@ -95,13 +95,33 @@ let dict = {
 
 $(window).scroll(function() {
         console.log($(this).scrollTop());
-        if ($(this).scrollTop() > 116) {
+        if ($(this).scrollTop() > 65) {
                 $('.nav-box ').addClass('fix');
 
             } else {
                 $('.nav-box ').removeClass('fix');
-            }
+        }
     });
+
+let gamesDivPosit = $("#games-content").offset().top - ($("#games-content").offset().top / 10);
+let webAppsPosit = $("#apps-content").offset().top;
+
+$(window).scroll(function() {
+        console.log($(this).scrollTop());
+        if ($(this).scrollTop() < gamesDivPosit && $(this).scrollTop() > 65) {
+                $('#web-apps ').addClass('highlighted');
+                $('#games').removeClass('highlighted');
+
+            } else if ($(this).scrollTop() > gamesDivPosit) {
+            $('#web-apps ').removeClass('highlighted');
+            $('#games').addClass('highlighted');
+            } else if ($(this).scrollTop() < 65) {
+                $('#web-apps ').removeClass('highlighted');
+
+            }
+        
+     });
+
 
 //creates the HTML that is used to append to the DOM
 
@@ -194,6 +214,7 @@ $(document).ready(function(){
    
         // Add hash (#) to URL when done scrolling (default click behavior)
         window.location.hash = hash;
+        // alert($("#games-content").offset().top);
       });
     } // End if
     // }

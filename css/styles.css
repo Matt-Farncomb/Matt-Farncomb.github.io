@@ -10,10 +10,10 @@ html, body {
 #header-box {
   display: grid;
   grid-template-columns:repeat(1, 100% [nav-col]);
-  grid-template-rows: [name-row] 65px [job-row] 55px;
+  grid-template-rows: [name-row] 70px [job-row] 70px;
   grid-auto-flow: row; 
   background-color: white;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   
 
   
@@ -33,12 +33,17 @@ html, body {
   /*border:solid 3px black;*/
 }
 
+a {
+  text-decoration: none;
+  color:black;
+  text-transform: uppercase;
+}
+
 #header-job {
   grid-column-start: 1;
   grid-column-end: 4;
   justify-self: stretch;
   text-align: center;
-  
   background-color: #423e3e;
   color:white;
   z-index: 1;
@@ -50,7 +55,7 @@ html, body {
 }
 
 .header-nav{
-   border-width: 0 2px 6px 0;
+   border-width: 2px 2px 2px 0;
    border-color: lightgrey;
    border-style: solid;
    color: #635f5f;
@@ -73,6 +78,10 @@ main {
   max-width: 500px;
   margin:auto;
   /*so  ehow make it -350 px less than total appenddiv*/
+}
+
+#games-article-header {
+  display: none;
 }
 
 .article-box {
@@ -144,8 +153,13 @@ main {
   
     left:0;
     right:0;
+    top: 0px;
     z-index: 2;
     
+}
+
+.highlighted {
+  background-color: #eae3e3;
 }
 
 
@@ -153,6 +167,10 @@ main {
     display: grid;
     grid-template-columns:repeat(3, 33.3% [nav-col]);
     background-color: white;
+}
+
+.nav-box {
+  opacity: .9;
 }
 
 /*animations*/
@@ -183,6 +201,15 @@ main {
   text-align: center;
 }
 
+#me-article {
+    border:solid 1px black;
+    background-color: #e7e2e2;
+}
+
+#me-text {
+  padding: 10px 20px 10px 20px;
+
+}
 /*The top position needs to be modified depending on how many items in the dict. Maybe with SASS*/
 
 @keyframes position-change {
@@ -196,27 +223,95 @@ main {
     100% {top:-3800px;}
   }
 
-@media screen and (min-width:415px) {
-    #appendSpace  {
-      /*width: 415px;*/
-      max-width: 500px;
-      margin: auto;
+
+  .img-sml {
+    display: block;
   }
-  #about-me-div {
-    width: 380px;
-    margin: auto;
+  .img-lge {
+    display: none;
+  }
+
+
+@media screen and (min-width: 400px) {
+  .img-sml {
+    display: none;
+  }
+  .img-lge {
+    display: block;
   }
 }
 
+
 @media screen and (min-width: 750px) {
+
+/*header*/
+
+#header-box {
+  grid-template-columns:repeat(2, 50% [nav-col]);
+  grid-template-rows: [name-row] 65px;
+  grid-column-gap: 30px;
+  padding-bottom: 20px;
+}
+
+#header-name {
+  grid-column-start: 1;
+  grid-column-end: 2;
+
+  justify-self: stretch;
+  text-align: right;
+  text-transform: initial;
+  color: #423e3e;
+  z-index: 1;
+  background-color: white;
+}
+
+#header-job {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  justify-self: stretch;
+  text-align: left;
+  background-color: white;
+  color:#423e3e;
+
+}
+
+.nav-box {
+  grid-template-columns:repeat(10, 10% [nav-col]);
+
+}
+
+#games-article-header {
+  display:block;
+
+}
+
+
+#web-apps {
+  grid-column-start: 3;
+  grid-column-end:5;
+}
+
+#games {
+grid-column-start: 5;
+grid-column-end:7;
+}
+
+#about-me {
+ grid-column-start: 7;
+ grid-column-end:9;
+ border-right: none;
+}
     main {
       max-width: 800px;
       display: grid;
       grid-template-columns:repeat(2, 50% [art-col]);
       grid-template-rows: repeat(44, 50px [row-start]) 5%;
       grid-auto-flow: row; 
+      grid-column-gap: 0px;
 
     }   
+
+
 
 /*order of articles*/
 
@@ -225,10 +320,17 @@ main {
       grid-column-end: 2,3;*/
       z-index:1;
       justify-self: stretch;
+      margin-right: 1.5px;
+      margin-left: 1.5px;
     }
 
     .divider  {
-      display:none;
+      visibility: hidden;
+      height:0em;
+ 
+      color: white;
+      padding-top: 0px;
+      font-size: 0px;
     }
 
     #piano-article {
@@ -259,10 +361,10 @@ main {
       grid-row-start: 18;
       grid-row-end: 30;      
     }
-
+    
     #crosses-article {
-      grid-row-start: 24;
-      grid-row-end: 36;            
+      grid-row-start: 31;
+      grid-row-end: 43;            
     }
 
     #caesar-article {
@@ -270,18 +372,114 @@ main {
       grid-row-end: 39;        
     }
     #samurai-article {
-      grid-row-start: 36;
-      grid-row-end: 46;        
+      grid-row-start: 39;
+      grid-row-end: 49;        
     }
     #stock-article {
-      grid-row-start: 39;
-      grid-row-end: 46;     
+      grid-row-start: 24;
+      grid-row-end: 31;  
+      grid-column-start:1;    
+    }
+    #about-me-div {
+      display: none;
+    }   
+    
+    #me-content {
+        height:2em;
+        background-color: #635f5f;
+        color: white;
+        text-align: center;
+        padding-top: 14px;
+        font-size: 22px;
+        visibility: visible;
+    }
+
+    #me-article {
+    border:solid 1px black;
+    background-color: #e7e7e7;
+    grid-row-start: 43;
+    grid-row-end: 49;  
+  } 
+}
+
+@media screen and (min-width: 1100px) {
+    main {
+      max-width: 1100px;
+      display: grid;
+      grid-template-columns:repeat(3, 33.3% [art-col]);
+      grid-template-rows: repeat(35, 50px [row-start]) 5%;
+      grid-auto-flow: row; 
+    } 
+
+  #piano-article {
+      grid-row-start: 1;
+      grid-row-end: 8; 
+    }
+
+    #wiki-article {
+      grid-row-start: 1;
+      grid-row-end: 8;
+      grid-column-start:3; 
+    }
+
+    #weather-article {
+      grid-row-start: 1;
+      grid-row-end: 9;
+      grid-column-start:2; 
+    }
+    
+    #sentiment-article {
+      grid-row-start: 9;
+      grid-row-end: 19;
+      grid-column-start:2; 
+    }
+
+    #maps-article {
+      grid-row-start: 8;
+      grid-row-end: 15;
+      grid-column-start:1; 
+    }
+    #calc-article {
+      grid-row-start: 8;
+      grid-row-end: 20;      
+    }
+
+    #caesar-article {
+      grid-row-start: 22;
+      grid-row-end: 36;            
+    }
+
+    #crosses-article {
+      grid-row-start: 20;
+      grid-row-end: 36; 
+      grid-column-start:3;        
+    }
+    #samurai-article {
+      grid-row-start: 19;
+      grid-row-end: 30;        
+    }
+    #stock-article {
+      grid-row-start: 15;
+      grid-row-end: 22;  
+      grid-column-start:1;   
     }
     #about-me-div {
       display: none;
     }   
 
-}
+    #me-article {
+      grid-row-start: 30;
+      grid-row-end: 36;
+      border:solid 1px black;
+      background-color: #e7e2e2;
+    }
+
+
+
+
+
+  }  
+
 
 
 
