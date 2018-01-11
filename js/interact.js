@@ -1,8 +1,16 @@
 
-let appendSpace = document.getElementById('appendSpace')
+let appendSpace = document.getElementById('appendSpace');
 let navBar = document.getElementsByClassName('header-nav');
+let hamburgerDrop = document.getElementById('hamburger-button');
+let elipsisButton = document.getElementsByClassName('elips-button');
+let appDesc = document.getElementsByClassName('app-desc');
+
+var articleBoxHeight = document.getElementsByClassName('article-box');
+let elipsClicked = false;
 
 //always begins with that appended
+
+
 let justPressed = "";
 let gamesArr = [];
 let meArr = [];
@@ -188,6 +196,80 @@ function appendDOM (temp) {
 //     }
 // }
 // window.scrollTo(x-coord, y-coord);
+// $(document).ready(function(){
+
+//     hamburgerDrop.onclick = function() { 
+//         alert("test");
+//         }
+// });
+let testName = "";
+let oneArr = [];
+let namey = "";
+let godisme = "";
+let elipsArr = [0];
+
+//array of storing value of whther elips button has been clicked or not
+let falseArr = [];
+// mmm
+//this fills the array with the right amount of fals evalues matching however many are in the DOM.
+//this way i can add and take away article boxes/elipsis buttons without changing this array
+for (var y = 0; y < elipsisButton.length; y++) {
+    falseArr[y] = false;
+}
+
+for (let i = 0; i < elipsisButton.length; i++) {
+    elipsisButton[i].onclick = function() {
+        elipsArr.push(i);
+    // alert(appDesc[i].style.display = inline;);
+    if (falseArr[i] == false) {
+        falseArr[i] = true;
+        
+      // alert(articleBoxHeight[i].clientHeight);
+            let oldHeight = articleBoxHeight[i].clientHeight;
+            //makes a weird flash frame when it first appears :(
+            appDesc[i].style.display = "inline";
+            // alert(appDesc[i].className);
+            namey = appDesc[i].className;
+            godisme = namey.split(" ")[0];
+            // alert(godisme);
+            testName = appDesc[i].className;
+            oneArr.push = testName;
+            // alert(this.parentNode.parentNode.parentNode.id);
+            tempID = "#app-desc-id_" + String(i);
+            // alert(tempID);
+            $(tempID).removeClass("fade-out");
+            $(tempID).addClass("fade-in");
+
+              // oldHeight = oldHeight += (oldHeight / 10);
+            for (x = 0; x < 30; x++) {
+                setTimeout(function() {
+                console.log(x);
+                oldHeight += 3;
+                articleBoxHeight[i].style.height = oldHeight + "px";
+            }, 10 * x);   
+        }   
+    } else if (falseArr[i] == true) {
+            falseArr[i] = false
+            let oldHeight = articleBoxHeight[i].clientHeight;
+             tempID = "#app-desc-id_" + String(i);
+            $(tempID).removeClass("fade-in");
+            $(tempID).addClass("fade-out");
+            setTimeout(function() {   
+               appDesc[i].style.display = "none";
+               // $("." + testName).removeClass("fade-out");
+            }, 300);
+            for (x = 0; x < 30; x++) {
+                setTimeout(function() {
+                    console.log(x);
+                    oldHeight -= 3;
+                    articleBoxHeight[i].style.height = oldHeight + "px";
+                }, 10 * x); 
+            }
+        }   
+    }
+}
+
+
 
 $(document).ready(function(){
   // Add smooth scrolling to all links
@@ -220,3 +302,4 @@ $(document).ready(function(){
     // }
   });
 });
+

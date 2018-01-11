@@ -4,8 +4,28 @@ html, body {
   background-color: lightgrey;
 }
 
+/*i {
+  padding: 20px;
+}
+*/
 
 /*HEADER*/
+
+/*.invisible {
+  display: none;
+}*/
+.elips-button {
+  padding-top: 12px;
+  background-color: #6f6f6f;
+  color:white;
+  border-radius: 20%;
+}
+
+.app-desc {
+  display: none;
+  grid-row-start: 3;
+}
+
 
 #header-box {
   display: grid;
@@ -14,11 +34,12 @@ html, body {
   grid-auto-flow: row; 
   background-color: white;
   /*text-transform: uppercase;*/
-  
-
-  
   /*border:solid 1px black;*/
 }
+
+ .long-name {
+  display: none;
+ }
 
 #header-name {
   grid-column-start: 1;
@@ -31,6 +52,19 @@ html, body {
   z-index: 1;
   background-color: white;
   /*border:solid 3px black;*/
+}
+
+/*.header-nav {
+  display: none;
+}*/
+
+  #hamburger-button {
+  text-align: center;
+  font-size: 40px;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  padding: 10px 0 10px 0;
+  margin-left:5%;
 }
 
 a {
@@ -77,6 +111,7 @@ main {
   max-height: 2500px;
   max-width: 500px;
   margin:auto;
+  margin-top: 5px;
   /*so  ehow make it -350 px less than total appenddiv*/
 }
 
@@ -97,10 +132,14 @@ main {
 }
 
 .img-box{
-  padding: 20px 41px 20px 41px;
-  max-width: 300px;
+  padding: 20px 5% 20px 5%;
+  max-width: 220px;
   margin: auto;
 }
+
+/*#samurai-skills {
+  background-color: black;
+}*/
 
 .outer-img-box {
   /*background-color: red;*/
@@ -136,7 +175,7 @@ main {
   z-index: -2;
 }
 
-.divider {
+.me-divider {
   height:2em;
   background-color: #635f5f;
   color: white;
@@ -189,6 +228,21 @@ main {
   animation-fill-mode: forwards;
 }
 
+.fade-in {
+  animation-name:fade-in;
+  animation-duration:1s;
+  animation-direction:forwards; 
+  animation-fill-mode: forwards;
+}
+
+.fade-out {
+  animation-name:fade-out;
+  animation-duration:.25s;
+  animation-direction:forwards; 
+  animation-fill-mode: forwards;
+}
+
+
 
 #about-me-div {
   margin: 0 25px 4px 25px;
@@ -210,6 +264,10 @@ main {
   padding: 10px 20px 10px 20px;
 
 }
+
+/*.article-box {
+
+}*/
 /*The top position needs to be modified depending on how many items in the dict. Maybe with SASS*/
 
 @keyframes position-change {
@@ -224,13 +282,23 @@ main {
   }
 
 
+@keyframes fade-in {
+  0%    {opacity: 0;}
+  100%  {opacity: 1;}
+}
+
+@keyframes fade-out {
+  0%    {opacity: 1;}
+  100%  {opacity: 0;}
+}
+
+
   .img-sml {
     display: block;
   }
   .img-lge {
     display: none;
   }
-
 
 @media screen and (min-width: 400px) {
   .img-sml {
@@ -239,12 +307,42 @@ main {
   .img-lge {
     display: block;
   }
+  .img-box{
+    padding: 20px 5% 20px 5%;
+    max-width: 300px;
+    margin: auto;
+    }
+
+  #hamburger-button {
+  display: none;
 }
+
+.header-nav {
+  display: block;
+}
+
+
+main {
+  margin-top: 0px;
+  }
+ .long-name {
+  display: inline;
+ }
 
 
 @media screen and (min-width: 750px) {
 
 /*header*/
+
+.invisible {
+  display: none;
+}
+
+.app-desc {
+  display: inline;
+  grid-row-start: 2;
+}
+
 
 #header-box {
   grid-template-columns:repeat(2, 50% [nav-col]);
@@ -305,7 +403,7 @@ grid-column-end:7;
       max-width: 800px;
       display: grid;
       grid-template-columns:repeat(2, 50% [art-col]);
-      grid-template-rows: repeat(44, 50px [row-start]) 5%;
+      grid-template-rows: repeat(44, 51px [row-start]) 5%;
       grid-auto-flow: row; 
       grid-column-gap: 0px;
 
@@ -339,18 +437,21 @@ grid-column-end:7;
     }
 
     #wiki-article {
-      grid-row-start: 1;
-      grid-row-end: 8;
+      grid-row-start: 11;
+      grid-row-end: 18;
+      grid-column-start: 2;
     }
 
     #weather-article {
       grid-row-start: 8;
       grid-row-end: 16;
+      grid-column-start: 1;
     }
     
     #sentiment-article {
-      grid-row-start: 8;
-      grid-row-end: 18;
+      grid-row-start: 1;
+      grid-row-end: 11;
+      grid-column-start: 2;
     }
 
     #maps-article {
@@ -407,7 +508,7 @@ grid-column-end:7;
       max-width: 1100px;
       display: grid;
       grid-template-columns:repeat(3, 33.3% [art-col]);
-      grid-template-rows: repeat(35, 50px [row-start]) 5%;
+      grid-template-rows: repeat(35, 51.5px [row-start]) 5%;
       grid-auto-flow: row; 
     } 
 
