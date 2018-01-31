@@ -2,9 +2,11 @@ html, body {
   margin:0;
   padding:0;
   background-color: lightgrey;
-  font-family: 'Josefin Slab', serif;
+  font-family: 'Josefin Slab';
+  font-weight:600;
+ 
 }
-
+    
 /*i {
   padding: 20px;
 }
@@ -22,6 +24,10 @@ html, body {
   border-radius: 20%;
 }
 
+.fa-ellipsis-h {
+  display: block;
+}
+
 .app-desc {
   display: none;
   grid-row-start: 3;
@@ -34,7 +40,8 @@ html, body {
   grid-template-rows: [name-row] 60px;
   grid-auto-flow: row; 
   background-color: white;
-  padding-top: 7px;
+  padding-top: 10px;
+  font-size:.75em;
   /*text-transform: uppercase;*/
   /*border:solid 1px black;*/
 }
@@ -305,6 +312,10 @@ main {
 
 @media screen and (min-width: 400px) {
 
+  #header-box {
+  font-size:1em;
+}
+
 
   .img-sml {
     display: none;
@@ -358,6 +369,7 @@ main {
   grid-template-rows: [name-row] 40px;
   grid-column-gap: 30px;
   padding-bottom: 20px;
+  font-size:1em;
 }
 
 #header-name {
