@@ -99,7 +99,7 @@ a {
 }
 
 .header-nav{
-   border-width: 2px 2px 2px 0;
+   border-width: 2px 2px 0 0;
    border-color: lightgrey;
    border-style: solid;
    color: #635f5f;
@@ -202,7 +202,7 @@ main {
   
     left:0;
     right:0;
-    top: 0px;
+    top: 0;
     z-index: 2;
     
 }
@@ -211,11 +211,22 @@ main {
   background-color: #eae3e3;
 }
 
+.nav-box-under 
+{
+    display: none;
+    grid-template-columns:repeat(3, 33.3% [nav-col]);
+    height: 3.5em;
+    background-color: white;
+    margin-bottom: 3px;
+
+  
+}
 
 .nav-box {
     display: grid;
     grid-template-columns:repeat(3, 33.3% [nav-col]);
     background-color: white;
+    margin-bottom: 3px;
 }
 
 .nav-box {

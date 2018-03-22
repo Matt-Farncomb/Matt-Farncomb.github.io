@@ -105,9 +105,15 @@ $(window).scroll(function() {
         console.log($(this).scrollTop());
         if ($(this).scrollTop() > 65) {
                 $('.nav-box ').addClass('fix');
+                $('.nav-box ').css('border-bottom', '2px solid lightgrey');
+                $('.nav-box-under ').css('display', 'grid');
+                //window.scrollTo(0, 60);
+
 
             } else {
                 $('.nav-box ').removeClass('fix');
+                $('.nav-box-under ').css('display', 'none');
+                $('.nav-box ').css('border-bottom', '0');
         }
     });
 
