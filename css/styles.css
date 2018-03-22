@@ -321,10 +321,12 @@ main {
     display: none;
   }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 415px) {
 
   #header-box {
   font-size:1em;
+  
+  
 }
 
 
